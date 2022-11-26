@@ -1,22 +1,28 @@
 import { FC, ReactNode, Suspense } from 'react';
-import { Spin } from 'antd';
-import Navigation from '../Navigation';
+import { ConfigProvider, Spin, theme } from 'antd';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
+import Header from '../Header';
 
 import styles from './index.module.css';
 
-interface AppProps {
+type AppProps = {
   children: ReactNode;
-}
+};
 
 export const App: FC<AppProps> = ({ children }) => {
-  const appStyles = `${styles.app} container`;
+  const { themeAlgorithm } = useTypedSelector(state => state.themeReducer);
+
+  const algorithm = theme[themeAlgorithm];
 
   return (
-    <>
-      <Navigation />
-      <Suspense fallback={<Spin />}>
-        <main>{children}</main>
-      </Suspense>
-    </>
+    <div className={styles.app}>
+      <ConfigProvider theme={{ algorithm }}>
+        <Header />
+
+        <Suspense fallback={<Spin />}>
+          <main>{children}</main>
+        </Suspense>
+      </ConfigProvider>
+    </div>
   );
 };

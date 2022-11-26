@@ -1,16 +1,4 @@
-export type Route = {
-  PATH: string;
-  NAME: string;
-};
-
-enum RoutesName {
-  SCOREBOARD = 'SCOREBOARD',
-  BOX_SCORE = 'BOX_SCORE',
-}
-
-type Routes = {
-  [key in RoutesName]: Route;
-};
+import { Routes } from '@/types/routes';
 
 export const ROUTES: Routes = {
   SCOREBOARD: {

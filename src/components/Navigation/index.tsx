@@ -1,9 +1,8 @@
 import { FC } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { Menu } from 'antd';
-import { Route, ROUTES } from '@/constants/routes';
-
-import styles from './index.module.css';
+import { ROUTES } from '@/constants/routes';
+import { Route } from '@/types/routes';
 
 const Navigation: FC = () => {
   const { pathname } = useLocation();
@@ -19,14 +18,7 @@ const Navigation: FC = () => {
     };
   });
 
-  return (
-    <Menu
-      mode="horizontal"
-      theme="dark"
-      items={items}
-      selectedKeys={[pathname]}
-    />
-  );
+  return <Menu mode="horizontal" items={items} selectedKeys={[pathname]} />;
 };
 
 export default Navigation;
