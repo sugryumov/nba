@@ -1,22 +1,15 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { Spin } from 'antd';
 import { store } from '@/store';
-import './index.css';
+import App from './components/App';
 
-const LazyRouter = lazy(() =>
-  import('./components/AppRouter').then(({ AppRouter }) => ({
-    default: AppRouter,
-  })),
-);
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
-      <Suspense fallback={<Spin />}>
-        <LazyRouter />
-      </Suspense>
+      <App />
     </Provider>
   </React.StrictMode>,
 );

@@ -22,7 +22,6 @@ const AppMenu: FC = () => {
 
   return (
     <Menu
-      theme="dark"
       mode="horizontal"
       items={items}
       selectedKeys={[pathname]}

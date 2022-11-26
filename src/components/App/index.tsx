@@ -1,33 +1,25 @@
-import { FC, ReactNode, Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { ConfigProvider, Layout, Spin, theme } from 'antd';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
-import AppHeader from '../AppHeader';
 
 import styles from './index.module.css';
 
-const { Header, Content } = Layout;
+const LazyRouter = lazy(() =>
+  import('../AppRouter').then(({ AppRouter }) => ({
+    default: AppRouter,
+  })),
+);
 
-type AppProps = {
-  children: ReactNode;
-};
-
-const App: FC<AppProps> = ({ children }) => {
+const App = () => {
   const { themeAlgorithm } = useTypedSelector(state => state.themeReducer);
-
   const algorithm = theme[themeAlgorithm];
 
   return (
     <ConfigProvider theme={{ algorithm }}>
       <Layout className={styles.app}>
-        <Header className={styles.header}>
-          <AppHeader />
-        </Header>
-
-        <Content className={styles.content}>
-          <Suspense fallback={<Spin />}>
-            <main>{children}</main>
-          </Suspense>
-        </Content>
+        <Suspense fallback={<Spin className={styles.spin} />}>
+          <LazyRouter />
+        </Suspense>
       </Layout>
     </ConfigProvider>
   );

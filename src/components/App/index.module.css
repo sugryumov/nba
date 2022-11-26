@@ -1,13 +1,8 @@
 .app {
   min-height: 100vh;
+  width: 100%;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.content {
-  padding: 0 50px;
+.spin {
+  margin-top: 50vh;
 }
