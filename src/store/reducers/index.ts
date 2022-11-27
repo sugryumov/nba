@@ -1,12 +1,12 @@
-import scoreboardReducer, { scoreboardActions } from './scoreboardSlice';
+import gamesReducer, { gamesActions } from './gamesSlice';
 import themeReducer, { themeActions } from './themeSlice';
 
 export const reducers = {
-  scoreboardReducer,
+  gamesReducer,
   themeReducer,
 };
 
 export const actions = {
-  ...scoreboardActions,
+  ...gamesActions,
   ...themeActions,
 };

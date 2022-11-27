@@ -1,5 +1,5 @@
 enum RoutesName {
-  SCOREBOARD = 'SCOREBOARD',
+  GAMES = 'GAMES',
   BOX_SCORE = 'BOX_SCORE',
 }
 

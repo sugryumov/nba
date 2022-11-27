@@ -1,16 +1,16 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { scoreboardApi } from '@/services/scoreboardService';
+import { gamesApi } from '@/services/gamesService';
 import { reducers } from './reducers';
 
 const rootReducer = combineReducers({
   ...reducers,
-  [scoreboardApi.reducerPath]: scoreboardApi.reducer,
+  [gamesApi.reducerPath]: gamesApi.reducer,
 });
 
 export const store = configureStore({
   reducer: rootReducer,
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(scoreboardApi.middleware),
+    getDefaultMiddleware().concat(gamesApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

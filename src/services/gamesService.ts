@@ -1,8 +1,8 @@
 import { api } from './apiService';
 
-export const scoreboardApi = api.injectEndpoints({
+export const gamesApi = api.injectEndpoints({
   endpoints: builder => ({
-    fetchScoreboard: builder.query({
+    fetchGames: builder.query({
       query: date => ({
         url: `/scoreboard/${date}`,
       }),
@@ -10,4 +10,4 @@ export const scoreboardApi = api.injectEndpoints({
   }),
 });
 
-export const { useFetchScoreboardQuery } = scoreboardApi;
+export const { useFetchGamesQuery } = gamesApi;

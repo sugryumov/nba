@@ -1,12 +1,12 @@
 import { Routes } from '@/types/routes';
 
 export const ROUTES: Routes = {
-  SCOREBOARD: {
+  GAMES: {
     PATH: '/',
-    NAME: 'SCOREBOARD',
+    NAME: 'GAMES',
   },
   BOX_SCORE: {
     PATH: '/box-score',
-    NAME: 'BOX_SCORE',
+    NAME: 'BOX SCORE',
   },
 };
