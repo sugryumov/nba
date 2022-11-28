@@ -6,7 +6,7 @@ import { parseDateFromYMD } from '@/helpers/parseDate';
 
 import styles from './index.module.css';
 
-const Controls: FC = () => {
+const GameSettings: FC = () => {
   const { setGameDate, setShowScore } = useActions();
   const { gameDate, isShowScore } = useTypedSelector(
     state => state.gamesReducer,
@@ -40,4 +40,4 @@ const Controls: FC = () => {
   );
 };
 
-export default Controls;
+export default GameSettings;

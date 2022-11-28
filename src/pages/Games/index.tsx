@@ -1,19 +1,26 @@
 import { FC } from 'react';
-import { Spin } from 'antd';
 import { useFetchGamesQuery } from '@/services/gamesService';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
-import Controls from './Controls';
+import GetDataLayout from '@/components/GetDataLayout';
+import GameSettings from './GameSettings';
 import GameList from './GameList';
 
 const Games: FC = () => {
   const { gameDate } = useTypedSelector(state => state.gamesReducer);
-  const { data, isFetching } = useFetchGamesQuery(gameDate);
+  const { data, isFetching, isError } = useFetchGamesQuery(gameDate);
 
   return (
     <>
-      <Controls />
+      <GameSettings />
 
-      {isFetching ? <Spin /> : <GameList games={data!} />}
+      <GetDataLayout
+        data={data}
+        isLoading={isFetching}
+        isError={isError}
+        emptyText="No games scheduled"
+      >
+        <GameList games={data!} />
+      </GetDataLayout>
     </>
   );
 };
