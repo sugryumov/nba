@@ -17,7 +17,7 @@ const App = () => {
   return (
     <ConfigProvider theme={{ algorithm }}>
       <Layout className={styles.app}>
-        <Suspense fallback={<Spin className={styles.spin} size="large" />}>
+        <Suspense>
           <LazyRouter />
         </Suspense>
       </Layout>

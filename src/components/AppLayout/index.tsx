@@ -26,9 +26,7 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
       </Header>
 
       <Content className="container">
-        <Suspense fallback={<Spin className={styles.spin} size="large" />}>
-          {children}
-        </Suspense>
+        <Suspense>{children}</Suspense>
       </Content>
     </>
   );
