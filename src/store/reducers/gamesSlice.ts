@@ -5,11 +5,13 @@ import { DATE_FORMAT } from '@/constants';
 type GamesSlice = {
   games: any;
   gameDate: string;
+  isShowScore: boolean;
 };
 
 const initialState: GamesSlice = {
   games: [],
   gameDate: dayjs().format(DATE_FORMAT),
+  isShowScore: false,
 };
 
 const gamesSlice = createSlice({
@@ -22,6 +24,10 @@ const gamesSlice = createSlice({
 
     setGameDate: (state, { payload }) => {
       state.gameDate = payload;
+    },
+
+    setShowScore: (state, { payload }) => {
+      state.isShowScore = payload;
     },
   },
 });

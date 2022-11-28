@@ -4,6 +4,8 @@ import { ThunderboltOutlined } from '@ant-design/icons';
 import { useActions } from '@/hooks/useActions';
 import AppMenu from '../AppMenu';
 
+import styles from './index.module.css';
+
 const AppHeader: FC = () => {
   const { setThemeAlgorithm } = useActions();
 
@@ -12,14 +14,14 @@ const AppHeader: FC = () => {
   };
 
   return (
-    <>
+    <div className={`container ${styles.wrapper}`}>
       <AppMenu />
       <Button
         type="primary"
         icon={<ThunderboltOutlined />}
         onClick={onClickChangeThemeAlgorithm}
       />
-    </>
+    </div>
   );
 };
 

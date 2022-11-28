@@ -25,8 +25,10 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
         <AppHeader />
       </Header>
 
-      <Content className={styles.content}>
-        <Suspense fallback={<Spin />}>{children}</Suspense>
+      <Content className="container">
+        <Suspense fallback={<Spin className={styles.spin} size="large" />}>
+          {children}
+        </Suspense>
       </Content>
     </>
   );

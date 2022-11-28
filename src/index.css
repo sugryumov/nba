@@ -1,1 +1,6 @@
 @import 'antd/dist/reset.css';
+
+.container {
+  margin: 0 auto;
+  width: 1200px;
+}
