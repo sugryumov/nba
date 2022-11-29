@@ -1,0 +1,6 @@
+.game {
+  display: grid;
+  grid-template-columns: 36% 28% 36%;
+  text-align: center;
+  align-items: center;
+}

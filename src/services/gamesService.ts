@@ -9,6 +9,7 @@ const transformData = (data: GamesResponse) => {
 
     return {
       ...game,
+      GAME_STATUS_ID: findHeader.GAME_STATUS_ID,
       GAME_STATUS_TEXT: findHeader.GAME_STATUS_TEXT,
     };
   });
@@ -24,6 +25,7 @@ const transformData = (data: GamesResponse) => {
     } else {
       acc[cur.GAME_ID] = {
         gameId: cur.GAME_ID,
+        gameStatusId: cur.GAME_STATUS_ID,
         gameStatusText: cur.GAME_STATUS_TEXT,
         homeTeam: '',
         homeTeamRecord: '',

@@ -1,4 +1,8 @@
-export const TEAMS: { [key: string]: string } = {
+type TTeams = {
+  [key: string]: string;
+};
+
+export const TEAMS: TTeams = {
   ATL: 'ATL',
   BKN: 'BKN',
   BOS: 'BOS',
@@ -29,5 +33,39 @@ export const TEAMS: { [key: string]: string } = {
   TOR: 'TOR',
   UTA: 'UTA',
   WAS: 'WAS',
+  NBA: 'NBA',
+};
+
+export const TEAM_NAMES: TTeams = {
+  ATL: 'Hawks',
+  BKN: 'Nets',
+  BOS: 'Celtics',
+  CHA: 'Hornets',
+  CHI: 'Bulls',
+  CLE: 'Cavaliers',
+  DAL: 'Mavericks',
+  DEN: 'Nuggets',
+  DET: 'Pistons',
+  GSW: 'Warriors',
+  HOU: 'Rockets',
+  IND: 'Pacers',
+  LAC: 'Clippers',
+  LAL: 'Lakers',
+  MEM: 'Grizzlies',
+  MIA: 'Heat',
+  MIL: 'Bucks',
+  MIN: 'Timberwolves',
+  NOP: 'Pelicans',
+  NYK: 'Knicks',
+  OKC: 'Thunder',
+  ORL: 'Magic',
+  PHI: '76ers',
+  PHX: 'Suns',
+  POR: 'Trail Blazers',
+  SAC: 'Kings',
+  SAS: 'Spurs',
+  TOR: 'Raptors',
+  UTA: 'Jazz',
+  WAS: 'Wizards',
   NBA: 'NBA',
 };

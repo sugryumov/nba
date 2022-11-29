@@ -104,6 +104,7 @@ export interface GamesResponse {
 
 export interface GameResponseDto {
   gameId: string;
+  gameStatusId: number;
   gameStatusText: string;
   homeTeam: string;
   visitorTeam: string;
