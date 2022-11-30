@@ -4,8 +4,8 @@
   justify-content: space-between;
 }
 
-.team p {
-  margin: 0;
+.info {
+  flex-basis: 90px;
 }
 
 .reverse {
@@ -15,4 +15,11 @@
 .pts {
   font-size: 22px;
   font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .pts {
+    font-size: 20px;
+    font-weight: bold;
+  }
 }

@@ -1,6 +1,24 @@
 @import 'antd/dist/reset.css';
 
+p {
+  margin: 0;
+}
+
 .container {
   margin: 0 auto;
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+@media (max-width: 1240px) {
+  .container {
+    box-sizing: border-box;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 10px;
+  }
 }

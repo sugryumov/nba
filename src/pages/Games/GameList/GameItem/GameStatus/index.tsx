@@ -12,7 +12,7 @@ type GameStatusProps = {
 const GameStatus: FC<GameStatusProps> = ({ time, status }) => (
   <div className={styles.status}>
     {status === GAME_STATUS.notStarted ? (
-      <Typography.Title level={5}>{time.toUpperCase()}</Typography.Title>
+      <p className={styles.time}>{time.toUpperCase()}</p>
     ) : (
       time
     )}

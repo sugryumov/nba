@@ -11,7 +11,7 @@ type GameItemProps = {
 };
 
 const GameItem: FC<GameItemProps> = ({ game }) => (
-  <Card key={game.gameId} bodyStyle={{ padding: '18px' }}>
+  <Card key={game.gameId} bodyStyle={{ padding: '15px 0' }}>
     <div className={styles.game}>
       <Team
         pts={game.visitorTeamPoints}

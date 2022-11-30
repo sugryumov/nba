@@ -2,6 +2,12 @@
   margin-top: 30px;
 }
 
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .showScore {
   display: flex;
   justify-content: flex-end;
@@ -9,4 +15,24 @@
 
 .text {
   margin-right: 15px;
+}
+
+@media (max-width: 600px) {
+  .card {
+    margin-top: 20px;
+  }
+
+  .inner {
+    flex-direction: column;
+  }
+
+  .datePicker {
+    width: 100%;
+  }
+
+  .showScore {
+    width: 100%;
+    margin-top: 30px;
+    justify-content: space-between;
+  }
 }
