@@ -1,6 +1,6 @@
 enum RoutesName {
   GAMES = 'GAMES',
-  BOX_SCORE = 'BOX_SCORE',
+  STANDINGS = 'STANDINGS',
 }
 
 export type Route = {

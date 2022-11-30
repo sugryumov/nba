@@ -1,0 +1,23 @@
+.table {
+  margin: 20px 0;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+  width: 250px;
+}
+
+.rank {
+  width: 20px;
+  font-weight: bold;
+}
+
+.name {
+  margin-left: 5px;
+}

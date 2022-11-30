@@ -5,8 +5,8 @@ export const ROUTES: Routes = {
     PATH: '/',
     NAME: 'GAMES',
   },
-  BOX_SCORE: {
-    PATH: '/box-score',
-    NAME: 'BOX SCORE',
+  STANDINGS: {
+    PATH: '/standings',
+    NAME: 'STANDINGS',
   },
 };

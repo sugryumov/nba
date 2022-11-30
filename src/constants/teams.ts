@@ -69,3 +69,11 @@ export const TEAM_NAMES: TTeams = {
   WAS: 'Wizards',
   NBA: 'NBA',
 };
+
+export const TEAM_ABBR: TTeams = Object.entries(TEAM_NAMES).reduce(
+  (acc, [abbr, name]) => ({
+    ...acc,
+    [name]: abbr,
+  }),
+  {},
+);
