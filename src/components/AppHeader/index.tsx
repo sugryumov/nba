@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button, Layout } from 'antd';
+import { Button } from 'antd';
 import { ThunderboltOutlined } from '@ant-design/icons';
 import { useActions } from '@/hooks/useActions';
 import AppMenu from '../AppMenu';

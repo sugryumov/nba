@@ -1,5 +1,5 @@
 import { FC, ReactNode, Suspense } from 'react';
-import { Layout, Spin, theme } from 'antd';
+import { Layout, theme } from 'antd';
 import AppHeader from '../AppHeader';
 
 import styles from './index.module.css';

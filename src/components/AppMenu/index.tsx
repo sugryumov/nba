@@ -9,16 +9,14 @@ import styles from './index.module.css';
 const AppMenu: FC = () => {
   const { pathname } = useLocation();
 
-  const items = Object.values(ROUTES).map((ROUTE: Route) => {
-    return {
+  const items = Object.values(ROUTES).map((ROUTE: Route) => ({
       key: ROUTE.PATH,
       label: (
         <Link key={ROUTE.PATH} to={ROUTE.PATH}>
           {ROUTE.NAME}
         </Link>
       ),
-    };
-  });
+    }));
 
   return (
     <Menu

@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { ConfigProvider, Layout, Spin, theme } from 'antd';
+import { ConfigProvider, Layout, theme } from 'antd';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 
 import styles from './index.module.css';

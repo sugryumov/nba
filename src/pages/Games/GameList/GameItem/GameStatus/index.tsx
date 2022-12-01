@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { Typography } from 'antd';
 import { GAME_STATUS } from '@/constants/gameStatus';
 
 import styles from './index.module.css';

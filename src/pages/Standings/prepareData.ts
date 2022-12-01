@@ -7,8 +7,7 @@ type SeparateOnDivisionResult = {
 export const separateOnDivision = (
   data: StandingsResponseDto[] = [],
   groupBy: GroupBy,
-): SeparateOnDivisionResult => {
-  return data.reduce((acc, team) => {
+): SeparateOnDivisionResult => data.reduce((acc, team) => {
     const groupKey = team[groupBy].toLocaleLowerCase();
 
     if (acc[groupKey]) {
@@ -29,4 +28,3 @@ export const separateOnDivision = (
       [groupKey]: [team],
     };
   }, {} as SeparateOnDivisionResult);
-};

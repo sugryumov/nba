@@ -1,7 +1,6 @@
 import { ISvgIcon } from '@/types/SVGIcon';
 
-const CHA = ({ width, height }: ISvgIcon) => {
-  return (
+const CHA = ({ width, height }: ISvgIcon) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -42,6 +41,5 @@ const CHA = ({ width, height }: ISvgIcon) => {
       </g>
     </svg>
   );
-};
 
 export default CHA;

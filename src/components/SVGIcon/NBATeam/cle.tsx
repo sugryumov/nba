@@ -8,7 +8,9 @@ const CLE = ({ width, height }: ISvgIcon) => (
     viewBox="0 0 400 400"
   >
     <style>
-      {'.cle0{fill:#ffb81c}.cle1{fill:#6f263d}.cle2{fill:#041e42}.cle3{fill:#fff}'}
+      {
+        '.cle0{fill:#ffb81c}.cle1{fill:#6f263d}.cle2{fill:#041e42}.cle3{fill:#fff}'
+      }
     </style>
     <path
       className="cle0"
