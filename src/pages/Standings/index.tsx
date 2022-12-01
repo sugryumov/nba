@@ -1,19 +1,32 @@
 import { FC } from 'react';
 import { useFetchStandingsQuery } from '@/services/standingsService';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
+import { CONFERENCE_DIVISION_NAME } from '@/constants/groupBy';
 import GetDataLayout from '@/components/GetDataLayout';
-import { separateOnDivision } from './prepareData';
+import StandingsSettings from './StandingsSetting';
 import StandingsTable from './StandingsTable';
+import { separateOnDivision } from './prepareData';
 
 const Standings: FC = () => {
+  const { groupBy } = useTypedSelector(state => state.standingsReducer);
   const { data, isFetching, isError } = useFetchStandingsQuery({});
 
-  const { east, west } = separateOnDivision(data);
+  const teams = separateOnDivision(data, groupBy);
 
   return (
-    <GetDataLayout data={data} isLoading={isFetching} isError={isError}>
-      <StandingsTable data={east} title="Eastern Conference" />
-      <StandingsTable data={west} title="Western Conference" />
-    </GetDataLayout>
+    <>
+      <StandingsSettings />
+
+      <GetDataLayout data={data} isLoading={isFetching} isError={isError}>
+        {Object.entries(teams).map(([name, teams]) => (
+          <StandingsTable
+            key={name}
+            data={teams}
+            title={CONFERENCE_DIVISION_NAME[name]}
+          />
+        ))}
+      </GetDataLayout>
+    </>
   );
 };
 

@@ -1,24 +1,32 @@
-import { StandingsResponseDto } from '@/types/response/standings';
+import { GroupBy, StandingsResponseDto } from '@/types/response/standings';
 
 type SeparateOnDivisionResult = {
-  east: StandingsResponseDto[];
-  west: StandingsResponseDto[];
+  [key: string]: StandingsResponseDto[];
 };
 
-export const separateOnDivision = (data: StandingsResponseDto[] = []) =>
-  data?.reduce(
-    (acc, team) => {
-      if (team.conference === 'East') {
-        return {
-          ...acc,
-          east: [...acc.east, team],
-        };
-      }
+export const separateOnDivision = (
+  data: StandingsResponseDto[] = [],
+  groupBy: GroupBy,
+): SeparateOnDivisionResult => {
+  return data.reduce((acc, team) => {
+    const groupKey = team[groupBy].toLocaleLowerCase();
 
+    if (acc[groupKey]) {
       return {
         ...acc,
-        west: [...acc.west, team],
+        [groupKey]: [
+          ...acc[groupKey],
+          {
+            ...team,
+            groupBy,
+          },
+        ],
       };
-    },
-    { east: [], west: [] } as SeparateOnDivisionResult,
-  );
+    }
+
+    return {
+      ...acc,
+      [groupKey]: [team],
+    };
+  }, {} as SeparateOnDivisionResult);
+};

@@ -1,17 +1,19 @@
-import { Grid } from 'antd';
 import { TEAM_ABBR } from '@/constants/teams';
 import SVGIcon from '@/components/SVGIcon';
+import { GROUP_BY } from '@/constants/groupBy';
 
 export const columns = [
   {
     title: 'Team',
     fixed: true,
     render: (_: string, record: any) => {
-      const { playoffRank, teamCity, teamName } = record;
+      const { groupBy, divisionRank, playoffRank, teamCity, teamName } = record;
 
       return (
         <div className="standings__team">
-          <p className="standings__rank">{playoffRank}</p>
+          <p className="standings__rank">
+            {groupBy === GROUP_BY.CONFERENCE ? playoffRank : divisionRank}
+          </p>
           <SVGIcon name={TEAM_ABBR[teamName]} width={28} height={28} />
           <div className="standings__name">
             <p className="standings__name-mobile">{TEAM_ABBR[teamName]}</p>

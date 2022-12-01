@@ -98,6 +98,7 @@ export type StandingsResponse = {
 export type StandingsResponseDto = {
   teamId: number;
   playoffRank: number;
+  divisionRank: number;
   conference: Conference;
   division: Divisions;
   teamCity: string;
@@ -114,3 +115,5 @@ export type StandingsResponseDto = {
   last10: string;
   strCurrentStreak: string;
 };
+
+export type GroupBy = 'conference' | 'division';

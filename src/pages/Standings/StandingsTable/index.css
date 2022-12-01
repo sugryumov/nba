@@ -13,6 +13,11 @@
 
 .standings__table .ant-table-cell {
   white-space: nowrap;
+  text-align: center;
+}
+
+.standings__table .ant-table-thead .ant-table-cell:not(:first-child) {
+  text-align: center;
 }
 
 .standings__team {
@@ -45,5 +50,9 @@
 
   .standings__team {
     width: 100px;
+  }
+
+  .standings__title {
+    font-size: 16px;
   }
 }

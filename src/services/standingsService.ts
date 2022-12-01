@@ -10,6 +10,7 @@ const transformData = (data: Standings[]): StandingsResponseDto[] =>
     ({
       TeamID,
       PlayoffRank,
+      DivisionRank,
       TeamCity,
       TeamName,
       Conference,
@@ -28,6 +29,7 @@ const transformData = (data: Standings[]): StandingsResponseDto[] =>
     }) => ({
       teamId: TeamID,
       playoffRank: PlayoffRank,
+      divisionRank: DivisionRank,
       teamCity: TeamCity,
       teamName: TeamName,
       division: Division,
