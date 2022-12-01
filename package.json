@@ -8,8 +8,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "lint": "eslint \"src/**/*.ts*\"",
     "lint:fix": "eslint \"src/**/*.ts*\" --fix",
     "prettify": "prettier --write \"src/**/*.ts*\""
