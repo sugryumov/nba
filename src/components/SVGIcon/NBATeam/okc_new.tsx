@@ -1,5 +1,4 @@
-import React from 'react';
-import { ISvgIcon } from '../interface';
+import { ISvgIcon } from '@/types/SVGIcon';
 
 const OKC = ({ width, height }: ISvgIcon) => (
   <svg

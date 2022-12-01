@@ -1,6 +1,4 @@
-import React from 'react';
-import { ISvgIcon } from '../interface';
-
+import { ISvgIcon } from '@/types/SVGIcon';
 const LAC = ({ width, height }: ISvgIcon) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
