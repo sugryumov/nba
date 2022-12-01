@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   base: '/nba/',
+  appType: 'mpa',
   resolve: {
     alias: {
       // eslint-disable-next-line no-undef
