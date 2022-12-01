@@ -24,6 +24,7 @@ const GameSettings: FC = () => {
     <Card className="game__settings">
       <div className="game__settings--inner">
         <DatePicker
+          inputReadOnly
           allowClear={false}
           className="game__settings--date-picker"
           onChange={onChangeGameDate}
