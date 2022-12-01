@@ -1,12 +1,15 @@
 {
-  "name": "vite-number-conversion",
+  "name": "nba",
   "private": true,
+  "homepage": "/nba",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "lint": "eslint \"src/**/*.ts*\"",
     "lint:fix": "eslint \"src/**/*.ts*\" --fix",
     "prettify": "prettier --write \"src/**/*.ts*\""
@@ -32,6 +35,7 @@
     "eslint": "^8.23.1",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-standard": "^5.0.0",
+    "gh-pages": "^4.0.0",
     "prettier": "^2.7.1",
     "typescript": "^4.6.4",
     "vite": "^3.1.0"
