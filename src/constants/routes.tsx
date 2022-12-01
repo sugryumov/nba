@@ -1,12 +1,13 @@
 import { Routes } from '@/types/routes';
+const ROUTE_PREF = '/nba';
 
 export const ROUTES: Routes = {
   GAMES: {
-    PATH: '/',
+    PATH: `${ROUTE_PREF}/`,
     NAME: 'GAMES',
   },
   STANDINGS: {
-    PATH: '/standings',
+    PATH: `${ROUTE_PREF}/standings`,
     NAME: 'STANDINGS',
   },
 };
