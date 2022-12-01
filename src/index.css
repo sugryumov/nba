@@ -1,4 +1,15 @@
-@import 'antd/dist/reset.css';
+/* @import 'antd/dist/reset.css'; */
+
+html {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+
+body {
+  margin: 0;
+  padding-right: 0;
+  line-height: inherit;
+}
 
 p {
   margin: 0;
@@ -19,6 +30,6 @@ p {
 
 @media (max-width: 600px) {
   .container {
-    padding: 0 10px;
+    padding: 0 16px;
   }
 }

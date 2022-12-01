@@ -1,14 +1,12 @@
 import { FC } from 'react';
-import { Card, DatePicker, Grid, Switch, Typography } from 'antd';
+import { Card, DatePicker, Switch, Typography } from 'antd';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { useActions } from '@/hooks/useActions';
 import { parseDateFromYMD } from '@/helpers/parseDate';
 
-import styles from './index.module.css';
+import './index.css';
 
 const GameSettings: FC = () => {
-  const isMobile = Grid.useBreakpoint().xs;
-
   const { setGameDate, setShowScore } = useActions();
   const { gameDate, isShowScore } = useTypedSelector(
     state => state.gamesReducer,
@@ -23,20 +21,19 @@ const GameSettings: FC = () => {
   };
 
   return (
-    <Card
-      className={styles.card}
-      bodyStyle={{ padding: `${isMobile ? '20px 15px' : '20px'}` }}
-    >
-      <div className={styles.inner}>
+    <Card className="game__settings">
+      <div className="game__settings--inner">
         <DatePicker
           allowClear={false}
-          className={styles.datePicker}
+          className="game__settings--date-picker"
           onChange={onChangeGameDate}
           defaultValue={parseDateFromYMD(gameDate)}
         />
 
-        <div className={styles.showScore}>
-          <Typography.Text className={styles.text}>SHOW SCORE</Typography.Text>
+        <div className="game__settings--show-score">
+          <Typography.Text className="game__settings--text">
+            SHOW SCORE
+          </Typography.Text>
           <Switch defaultChecked={isShowScore} onChange={onChangeShowScore} />
         </div>
       </div>

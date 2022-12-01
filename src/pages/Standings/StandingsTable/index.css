@@ -1,0 +1,49 @@
+.standings__title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.standings__table {
+  margin: 20px 0;
+}
+
+.standings__table .ant-table-container {
+  overflow-y: auto;
+}
+
+.standings__table .ant-table-cell {
+  white-space: nowrap;
+}
+
+.standings__team {
+  display: flex;
+  align-items: center;
+  width: 250px;
+}
+
+.standings__rank {
+  width: 18px;
+  font-weight: bold;
+}
+
+.standings__name {
+  margin-left: 5px;
+}
+
+.standings__name-mobile {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .standings__name-mobile {
+    display: block;
+  }
+
+  .standings__name-desktop {
+    display: none;
+  }
+
+  .standings__team {
+    width: 100px;
+  }
+}

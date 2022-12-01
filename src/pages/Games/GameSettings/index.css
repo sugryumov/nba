@@ -1,36 +1,44 @@
-.card {
+.game__settings {
   margin-top: 30px;
 }
 
-.inner {
+.game__settings .ant-card-body {
+  padding: 20px;
+}
+
+.game__settings--inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.showScore {
+.game__settings--show-score {
   display: flex;
   justify-content: flex-end;
 }
 
-.text {
+.game__settings--text {
   margin-right: 15px;
 }
 
 @media (max-width: 600px) {
-  .card {
+  .game__settings {
     margin-top: 20px;
   }
 
-  .inner {
+  .game__settings .ant-card-body {
+    padding: 20px 15px;
+  }
+
+  .game__settings--inner {
     flex-direction: column;
   }
 
-  .datePicker {
+  .game__settings--date-picker {
     width: 100%;
   }
 
-  .showScore {
+  .game__settings--show-score {
     width: 100%;
     margin-top: 30px;
     justify-content: space-between;

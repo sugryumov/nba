@@ -3,7 +3,7 @@ import { Table } from 'antd';
 import { StandingsResponseDto } from '@/types/response/standings';
 import { columns } from './columns';
 
-import styles from './index.module.css';
+import './index.css';
 
 type StandingsTableProps = {
   title: ReactNode;
@@ -11,7 +11,7 @@ type StandingsTableProps = {
 };
 
 const StandingsTable: FC<StandingsTableProps> = ({ title, data }) => {
-  const renderTableTitle = () => <p className={styles.title}>{title}</p>;
+  const renderTableTitle = () => <p className="standings__title">{title}</p>;
 
   return (
     <Table
@@ -21,7 +21,7 @@ const StandingsTable: FC<StandingsTableProps> = ({ title, data }) => {
       dataSource={data}
       columns={columns}
       pagination={false}
-      className={styles.table}
+      className="standings__table"
     />
   );
 };
