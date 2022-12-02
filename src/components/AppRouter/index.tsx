@@ -6,6 +6,7 @@ import AppLayout from '../AppLayout';
 export const AppRouter = () => {
   const Games = React.lazy(() => import('../../pages/Games'));
   const Standings = React.lazy(() => import('../../pages/Standings'));
+  const BoxScore = React.lazy(() => import('../../pages/BoxScore'));
 
   return (
     <BrowserRouter>
@@ -13,6 +14,7 @@ export const AppRouter = () => {
         <Routes>
           <Route path={ROUTES.GAMES.PATH} element={<Games />} />
           <Route path={ROUTES.STANDINGS.PATH} element={<Standings />} />
+          <Route path={ROUTES.BOX_SCORE.PATH} element={<BoxScore />} />
         </Routes>
       </AppLayout>
     </BrowserRouter>
