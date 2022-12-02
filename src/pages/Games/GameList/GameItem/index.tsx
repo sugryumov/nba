@@ -3,15 +3,21 @@ import { Card } from 'antd';
 import { GameResponseDto } from '@/types/response/games';
 import Team from './Team';
 import GameStatus from './GameStatus';
+import GameInfo from './GameInfo';
 
 import styles from './index.module.css';
+import { GAME_STATUS } from '@/constants/gameStatus';
 
 type GameItemProps = {
   game: GameResponseDto;
 };
 
 const GameItem: FC<GameItemProps> = ({ game }) => (
-  <Card key={game.gameId} bodyStyle={{ padding: '15px 0' }}>
+  <Card
+    key={game.gameId}
+    className={styles.card}
+    bodyStyle={{ padding: '15px 0 0' }}
+  >
     <div className={styles.game}>
       <Team
         pts={game.visitorTeamPoints}
@@ -28,6 +34,12 @@ const GameItem: FC<GameItemProps> = ({ game }) => (
         isReverse={true}
       />
     </div>
+
+    {game.gameStatusId !== GAME_STATUS.notStarted && (
+      <Card className={styles.info} bodyStyle={{ padding: '0' }}>
+        <GameInfo gameId={game.gameId} />
+      </Card>
+    )}
   </Card>
 );
 
