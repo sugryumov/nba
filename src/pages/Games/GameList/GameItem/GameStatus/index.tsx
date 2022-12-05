@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { GAME_STATUS } from '@/constants/gameStatus';
 
-import styles from './index.module.css';
+import './index.css';
 
 type GameStatusProps = {
   time: string;
@@ -9,9 +9,9 @@ type GameStatusProps = {
 };
 
 const GameStatus: FC<GameStatusProps> = ({ time, status }) => (
-  <div className={styles.status}>
+  <div>
     {status === GAME_STATUS.notStarted ? (
-      <p className={styles.time}>{time.toUpperCase()}</p>
+      <p className="game-list__item--time">{time.toUpperCase()}</p>
     ) : (
       time
     )}

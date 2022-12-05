@@ -1,24 +1,24 @@
-.team {
+.game-list__item--team {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.info {
+.game-list__item--info {
   flex-basis: 90px;
 }
 
-.reverse {
+.game-list__item--reverse {
   flex-direction: row-reverse;
 }
 
-.pts {
+.game-list__item--pts {
   font-size: 22px;
   font-weight: bold;
 }
 
 @media (max-width: 600px) {
-  .pts {
+  .game-list__item--pts {
     font-size: 20px;
     font-weight: bold;
   }
