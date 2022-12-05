@@ -1,0 +1,11 @@
+.game-list__item--time {
+  padding: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .game-list__item--time {
+    font-size: 14px;
+  }
+}

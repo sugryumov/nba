@@ -4,15 +4,15 @@ import { GameResponseDto } from '@/types/response/games';
 import Team from './Team';
 import GameStatus from './GameStatus';
 
-import styles from './index.module.css';
+import './index.css';
 
 type GameItemProps = {
   game: GameResponseDto;
 };
 
 const GameItem: FC<GameItemProps> = ({ game }) => (
-  <Card key={game.gameId} bodyStyle={{ padding: '15px 0' }}>
-    <div className={styles.game}>
+  <Card key={game.gameId} className="game-list__item">
+    <div className="game-list__item--inner">
       <Team
         pts={game.visitorTeamPoints}
         team={game.visitorTeam}

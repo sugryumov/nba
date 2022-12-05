@@ -1,12 +1,10 @@
-.game {
+.game-list__item .ant-card-body {
+  padding: 15px 0;
+}
+
+.game-list__item--inner {
   display: grid;
   grid-template-columns: 36% 28% 36%;
   text-align: center;
   align-items: center;
-}
-
-@media (max-width: 600px) {
-  .container {
-    padding: 0 10px;
-  }
 }
