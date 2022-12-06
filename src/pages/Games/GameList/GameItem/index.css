@@ -1,5 +1,9 @@
+.game-list__item {
+  overflow: hidden;
+}
+
 .game-list__item .ant-card-body {
-  padding: 15px 0;
+  padding: 15px 0 0;
 }
 
 .game-list__item--inner {
@@ -7,4 +11,16 @@
   grid-template-columns: 36% 28% 36%;
   text-align: center;
   align-items: center;
+  padding-bottom: 15px;
+}
+
+.game-list__item--info {
+  border-radius: 0;
+  border-bottom: none;
+  border-right: none;
+  border-left: none;
+}
+
+.game-list__item--info .ant-card-body {
+  padding: 0;
 }

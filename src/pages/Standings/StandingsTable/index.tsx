@@ -11,7 +11,7 @@ type StandingsTableProps = {
 };
 
 const StandingsTable: FC<StandingsTableProps> = ({ title, data }) => {
-  const renderTableTitle = () => <p className="standings__title">{title}</p>;
+  const renderTableTitle = () => <p className="title">{title}</p>;
 
   return (
     <Table

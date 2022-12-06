@@ -1,0 +1,7 @@
+.box-score__table {
+  margin: 20px 0;
+}
+
+.box-score__table .ant-table-container {
+  overflow-y: auto;
+}

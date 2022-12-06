@@ -1,8 +1,10 @@
 import { FC } from 'react';
 import { Card } from 'antd';
 import { GameResponseDto } from '@/types/response/games';
+import { GAME_STATUS } from '@/constants/gameStatus';
 import Team from './Team';
 import GameStatus from './GameStatus';
+import GameInfo from './GameInfo';
 
 import './index.css';
 
@@ -28,6 +30,12 @@ const GameItem: FC<GameItemProps> = ({ game }) => (
         isReverse={true}
       />
     </div>
+
+    {game.gameStatusId !== GAME_STATUS.notStarted && (
+      <Card className="game-list__item--info">
+        <GameInfo gameId={game.gameId} />
+      </Card>
+    )}
   </Card>
 );
 

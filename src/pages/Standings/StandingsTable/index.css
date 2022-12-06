@@ -1,8 +1,3 @@
-.standings__title {
-  font-size: 22px;
-  font-weight: bold;
-}
-
 .standings__table {
   margin: 20px 0;
 }
@@ -50,9 +45,5 @@
 
   .standings__team {
     width: 100px;
-  }
-
-  .standings__title {
-    font-size: 16px;
   }
 }
