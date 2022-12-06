@@ -1,7 +1,16 @@
 import { api } from './apiService';
+import {
+  BoxScoreResponse,
+  BoxScoreResponseDto,
+} from '@/types/response/boxScore';
 
-const transformData = (data: any) => {
-  return data;
+const transformData = (data: BoxScoreResponse) => {
+  const { homeTeam, awayTeam } = data.game;
+
+  return {
+    awayTeam,
+    homeTeam,
+  };
 };
 
 export const boxScoreApi = api.injectEndpoints({
@@ -10,7 +19,8 @@ export const boxScoreApi = api.injectEndpoints({
       query: (gameId: string) => ({
         url: `/box-score/${gameId}`,
       }),
-      transformResponse: data => transformData(data),
+      transformResponse: (data: BoxScoreResponse): BoxScoreResponseDto =>
+        transformData(data),
     }),
   }),
 });
