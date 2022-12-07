@@ -13,7 +13,7 @@ type Period = {
   score: number;
 };
 
-type Player = {
+export type BoxScorePlayer = {
   familyName: string;
   firstName: string;
   jerseyNum: string;
@@ -25,11 +25,13 @@ type Player = {
   played: string;
   position: string;
   starter: string;
-  statistics: Statistics;
+  notPlayingReason: string;
+  notPlayingDescription: string;
+  statistics: BoxScoreStatistics;
   status: string;
 };
 
-type Statistics = {
+export type BoxScoreStatistics = {
   assists: number;
   assistsTurnoverRatio: number;
   benchPoints: number;
@@ -96,9 +98,9 @@ type Statistics = {
 export type BoxScoreTeam = {
   inBonus: string;
   periods: Period[];
-  players: Player[];
+  players: BoxScorePlayer[];
   score: number;
-  statistics: Statistics;
+  statistics: BoxScoreStatistics;
   teamCity: string;
   teamId: number;
   teamName: string;

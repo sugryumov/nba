@@ -2,6 +2,34 @@
   margin: 20px 0;
 }
 
+.box-score__table .ant-table {
+  overflow: hidden;
+}
+
 .box-score__table .ant-table-container {
   overflow-y: auto;
+}
+
+.box-score__table .ant-table-cell {
+  white-space: nowrap;
+  text-align: center;
+}
+
+.box-score__table .ant-table-thead .ant-table-cell:not(:first-child) {
+  text-align: center;
+}
+
+.box-score__table--player {
+  width: 150px;
+  text-align-last: left;
+}
+
+.box-score__table--position {
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.box-score__table--not-playing {
+  text-align-last: left;
 }
