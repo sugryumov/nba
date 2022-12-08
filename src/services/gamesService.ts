@@ -15,7 +15,12 @@ const transformData = (data: GamesResponse) => {
   });
 
   const games = compareData.reduce((acc, cur) => {
-    if (acc.hasOwnProperty(cur.GAME_ID)) {
+    const hasGameIdProperty = Object.prototype.hasOwnProperty.call(
+      acc,
+      cur.GAME_ID,
+    );
+
+    if (hasGameIdProperty) {
       acc[cur.GAME_ID] = {
         ...acc[cur.GAME_ID],
         homeTeam: cur.TEAM_ABBREVIATION,
