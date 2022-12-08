@@ -9,10 +9,15 @@ export const columns: ColumnsType<BoxScorePlayer> = [
     title: 'Player',
     fixed: true,
     render: (_: string, record: BoxScorePlayer) => {
-      const { name, position } = record;
+      const { name, position, personId } = record;
 
       return (
         <div className="box-score__table--player">
+          <img
+            className="box-score__table--img"
+            src={`https://cdn.nba.com/headshots/nba/latest/260x190/${personId}.png`}
+            alt={name}
+          />
           {name}
           <span className="box-score__table--position">{position ?? ''}</span>
         </div>
