@@ -33,7 +33,11 @@ const GameItem: FC<GameItemProps> = ({ game }) => (
 
     {game.gameStatusId !== GAME_STATUS.notStarted && (
       <Card className="game-list__item--info">
-        <GameInfo gameId={game.gameId} />
+        <GameInfo
+          gameId={game.gameId}
+          hTeam={game.homeTeam}
+          vTeam={game.visitorTeam}
+        />
       </Card>
     )}
   </Card>
