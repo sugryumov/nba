@@ -8,35 +8,28 @@
 
 .play-by-play__item {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .play-by-play__item--visitor {
-  justify-content: flex-start;
-  text-align: right;
-}
-
-.play-by-play__item--home {
   flex-direction: row-reverse;
 }
 
 .play-by-play__item--description {
-  flex-basis: calc(50% - 45px);
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: start;
+  align-items: center;
+  width: calc(50% - 45px);
 }
 
 .play-by-play__item--reverse {
-  flex-direction: initial;
-  justify-content: end;
+  flex-direction: row-reverse;
 }
 
 .play-by-play__item--img {
   width: 27px;
   height: 27px;
-  vertical-align: middle;
   border-radius: 50%;
   box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 10%);
   object-fit: cover;
@@ -53,4 +46,37 @@
 
 .play-by-play__item--text {
   margin: 0 10px;
+}
+
+@media (max-width: 900px) {
+  .play-by-play__item--visitor {
+    flex-direction: row;
+  }
+
+  .play-by-play__item--home {
+    justify-content: flex-start;
+  }
+
+  .play-by-play__item--description {
+    width: 100%;
+  }
+
+  .play-by-play__item--reverse {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 600px) {
+  .play-by-play__item--quarter {
+    font-size: 12px;
+  }
+
+  .play-by-play__item--info {
+    width: 80px;
+    margin-right: 10px;
+  }
+
+  .play-by-play__item--text {
+    font-size: 12px;
+  }
 }

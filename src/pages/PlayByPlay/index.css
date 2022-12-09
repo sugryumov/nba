@@ -6,4 +6,8 @@
   .play-by-play {
     margin-top: 20px;
   }
+
+  .play-by-play .ant-card-body {
+    padding: 20px 5px;
+  }
 }

@@ -53,15 +53,15 @@ const PlayByPlayItem: FC<PlayByPlayItemProps> = ({ item }) => {
       <>
         {description && (
           <div className={`play-by-play__item ${classNameItem}`}>
-            <div className={classNameDescription}>
-              <span className="play-by-play__item--text">{description}</span>
-              {showPhoto && (
-                <img className="play-by-play__item--img" src={srcPath} />
-              )}
-            </div>
             <div className="play-by-play__item--info">
               <p>{pcTimeString}</p>
               <p className="play-by-play__item--score">{score && score}</p>
+            </div>
+            <div className={classNameDescription}>
+              {showPhoto && (
+                <img className="play-by-play__item--img" src={srcPath} />
+              )}
+              <span className="play-by-play__item--text">{description}</span>
             </div>
           </div>
         )}

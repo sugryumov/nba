@@ -20,8 +20,8 @@ const PlayByPlayHeader: FC = () => {
 
   return (
     <div className="play-by-play__header">
-      {renderTeam(hTeam)}
       {renderTeam(vTeam)}
+      {renderTeam(hTeam)}
     </div>
   );
 };
