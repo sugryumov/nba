@@ -1,5 +1,6 @@
 import { FC, Fragment } from 'react';
 import { PlayByPlayResponseDto } from '@/types/response/playByPlay';
+import { PLAY_BY_PLAY_EVENT_MSG_TYPE } from '@/constants/gameStatus';
 
 import './index.css';
 
@@ -8,66 +9,70 @@ type PlayByPlayItemProps = {
 };
 
 const PlayByPlayItem: FC<PlayByPlayItemProps> = ({ item }) => {
-  if (item.eventMsgType === 12) {
-    return <p className="play-by-play__item--quarter">Q{item.period} start</p>;
+  const {
+    eventMsgType,
+    period,
+    person1Type,
+    player1Name,
+    player1Id,
+    player2Name,
+    player3Name,
+    player3Id,
+    person3Type,
+    visitorDescription,
+    homeDescription,
+    pcTimeString,
+    score,
+  } = item;
+
+  if (eventMsgType === PLAY_BY_PLAY_EVENT_MSG_TYPE.startQuarter) {
+    return <p className="play-by-play__item--quarter">Q{period} start</p>;
   }
 
-  if (item.eventMsgType === 13) {
-    return <p className="play-by-play__item--quarter">Q{item.period} end</p>;
+  if (eventMsgType === PLAY_BY_PLAY_EVENT_MSG_TYPE.endQuarter) {
+    return <p className="play-by-play__item--quarter">Q{period} end</p>;
   }
 
-  const showPhoto = item.player1Name || item.player3Name || item.player3Name;
+  const showPhoto = player1Name || player2Name || player3Name;
+  const playerId = (type: number) => (type === 4 ? player3Id : player1Id);
+
+  const renderItem = (description: string | null, isHome: boolean) => {
+    const classNameItem = isHome
+      ? 'play-by-play__item--home'
+      : 'play-by-play__item--visitor';
+
+    const classNameDescription = isHome
+      ? 'play-by-play__item--description'
+      : 'play-by-play__item--description play-by-play__item--reverse';
+
+    const srcPath = `https://cdn.nba.com/headshots/nba/latest/260x190/${
+      isHome ? playerId(person3Type) : playerId(person1Type)
+    }.png`;
+
+    return (
+      <>
+        {description && (
+          <div className={`play-by-play__item ${classNameItem}`}>
+            <div className={classNameDescription}>
+              <span className="play-by-play__item--text">{description}</span>
+              {showPhoto && (
+                <img className="play-by-play__item--img" src={srcPath} />
+              )}
+            </div>
+            <div className="play-by-play__item--info">
+              <p>{pcTimeString}</p>
+              <p className="play-by-play__item--score">{score && score}</p>
+            </div>
+          </div>
+        )}
+      </>
+    );
+  };
 
   return (
     <Fragment key={item.eventNum}>
-      {item.visitorDescription && (
-        <div className="play-by-play__item play-by-play__item--left">
-          <div className="play-by-play__item--description">
-            <span className="play-by-play__item--text">
-              {item.visitorDescription}
-            </span>
-            {showPhoto && (
-              <img
-                className="play-by-play__item--img"
-                src={`https://cdn.nba.com/headshots/nba/latest/260x190/${
-                  item.person1Type === 4 ? item.player3Id : item.player1Id
-                }.png`}
-              />
-            )}
-          </div>
-          <div className="play-by-play__item--time">
-            <p>{item.pcTimeString}</p>
-            <p className="play-by-play__item--score">
-              {item.score && item.score}
-            </p>
-          </div>
-        </div>
-      )}
-
-      {item.homeDescription && (
-        <div className="play-by-play__item play-by-play__item--right">
-          <div className="play-by-play__item--time">
-            <p>{item.pcTimeString}</p>
-            <p className="play-by-play__item--score">
-              {item.score && item.score}
-            </p>
-          </div>
-          <div className="play-by-play__item--description">
-            {showPhoto && (
-              <img
-                className="play-by-play__item--img"
-                src={`https://cdn.nba.com/headshots/nba/latest/260x190/${
-                  item.person3Type === 4 ? item.player3Id : item.player1Id
-                }.png`}
-              />
-            )}
-
-            <span className="play-by-play__item--text">
-              {item.homeDescription}
-            </span>
-          </div>
-        </div>
-      )}
+      {renderItem(visitorDescription, false)}
+      {renderItem(homeDescription, true)}
     </Fragment>
   );
 };
