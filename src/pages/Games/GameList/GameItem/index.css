@@ -22,5 +22,6 @@
 }
 
 .game-list__item--info .ant-card-body {
+  display: flex;
   padding: 0;
 }

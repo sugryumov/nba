@@ -1,0 +1,19 @@
+.play-by-play__header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.play-by-play__header--team {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .play-by-play__header--team {
+    flex-direction: column;
+    font-size: 14px;
+  }
+}
