@@ -1,5 +1,6 @@
 import { FC, Fragment } from 'react';
 import { PlayByPlayResponseDto } from '@/types/response/playByPlay';
+import { playByPlayOptions } from '@/helpers/prepareOptions';
 import { PLAY_BY_PLAY_EVENT_MSG_TYPE } from '@/constants/gameStatus';
 
 import './index.css';
@@ -25,12 +26,22 @@ const PlayByPlayItem: FC<PlayByPlayItemProps> = ({ item }) => {
     score,
   } = item;
 
+  const { label: periodText } = playByPlayOptions(period);
+
   if (eventMsgType === PLAY_BY_PLAY_EVENT_MSG_TYPE.startQuarter) {
-    return <p className="play-by-play__item--quarter">Q{period} start</p>;
+    return (
+      <p className="play-by-play__item--quarter">
+        <>{periodText} start</>
+      </p>
+    );
   }
 
   if (eventMsgType === PLAY_BY_PLAY_EVENT_MSG_TYPE.endQuarter) {
-    return <p className="play-by-play__item--quarter">Q{period} end</p>;
+    return (
+      <p className="play-by-play__item--quarter">
+        <>{periodText} end</>
+      </p>
+    );
   }
 
   const showPhoto = player1Name || player2Name || player3Name;

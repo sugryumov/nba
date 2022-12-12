@@ -2,6 +2,11 @@
   margin-top: 30px;
 }
 
+.play-by-play__segmented {
+  max-width: 500px;
+  margin: 0 auto 20px;
+}
+
 @media (max-width: 600px) {
   .play-by-play {
     margin-top: 20px;
