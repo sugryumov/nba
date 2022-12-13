@@ -2,6 +2,7 @@ import { FC, Fragment } from 'react';
 import { PlayByPlayResponseDto } from '@/types/response/playByPlay';
 import { playByPlayOptions } from '@/helpers/prepareOptions';
 import { PLAY_BY_PLAY_EVENT_MSG_TYPE } from '@/constants/gameStatus';
+import PlayByPlayModal from '../PlayByPlayModal';
 
 import './index.css';
 
@@ -11,7 +12,9 @@ type PlayByPlayItemProps = {
 
 const PlayByPlayItem: FC<PlayByPlayItemProps> = ({ item }) => {
   const {
+    gameId,
     eventMsgType,
+    eventNum,
     period,
     person1Type,
     player1Name,
@@ -24,6 +27,7 @@ const PlayByPlayItem: FC<PlayByPlayItemProps> = ({ item }) => {
     homeDescription,
     pcTimeString,
     score,
+    videoAvailableFlag,
   } = item;
 
   const { label: periodText } = playByPlayOptions(period);
@@ -72,7 +76,13 @@ const PlayByPlayItem: FC<PlayByPlayItemProps> = ({ item }) => {
               {showPhoto && (
                 <img className="play-by-play__item--img" src={srcPath} />
               )}
-              <span className="play-by-play__item--text">{description}</span>
+
+              <PlayByPlayModal
+                gameId={gameId}
+                eventNum={eventNum}
+                description={description}
+                videoAvailableFlag={videoAvailableFlag}
+              />
             </div>
           </div>
         )}

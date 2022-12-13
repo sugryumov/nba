@@ -45,6 +45,7 @@ export interface PlayByPlayResponse {
 }
 
 export interface PlayByPlayResponseDto {
+  gameId: string;
   eventMsgAction: number;
   eventMsgType: number;
   eventNum: number;

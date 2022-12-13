@@ -8,6 +8,7 @@ const transformData = (data: PlayByPlayResponse): PlayByPlayResponseDto[] => {
   const { PlayByPlay } = data;
 
   return PlayByPlay.map(item => ({
+    gameId: item.GAME_ID,
     eventMsgAction: item.EVENTMSGACTIONTYPE,
     eventMsgType: item.EVENTMSGTYPE,
     eventNum: item.EVENTNUM,

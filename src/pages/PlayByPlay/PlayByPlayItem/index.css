@@ -44,10 +44,6 @@
   font-weight: bold;
 }
 
-.play-by-play__item--text {
-  margin: 0 10px;
-}
-
 @media (max-width: 900px) {
   .play-by-play__item--visitor {
     flex-direction: row;
@@ -74,9 +70,5 @@
   .play-by-play__item--info {
     width: 80px;
     margin-right: 10px;
-  }
-
-  .play-by-play__item--text {
-    font-size: 12px;
   }
 }
