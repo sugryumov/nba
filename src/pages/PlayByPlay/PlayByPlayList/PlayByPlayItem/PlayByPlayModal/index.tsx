@@ -32,40 +32,44 @@ const PlayByPlayModal: FC<PlayByPlayModalProps> = ({
 
   const handleCancel = () => setIsModalOpen(false);
 
+  const renderDescription = videoAvailableFlag ? (
+    <Button
+      type="link"
+      onClick={showModal}
+      className="play-by-play__modal--button"
+    >
+      {description}
+    </Button>
+  ) : (
+    <p className="play-by-play__modal--text">{description}</p>
+  );
+
+  const renderVideo = isFetching ? (
+    <Spin size="large" className="play-by-play__modal--spin" />
+  ) : (
+    <video
+      autoPlay
+      controls
+      src={data?.videoUrl}
+      poster={data?.videoPoster}
+      className="play-by-play__modal--video"
+    />
+  );
+
   return (
     <>
-      {videoAvailableFlag ? (
-        <Button
-          type="link"
-          onClick={showModal}
-          className="play-by-play__modal--button"
-        >
-          {description}
-        </Button>
-      ) : (
-        <p className="play-by-play__modal--text">{description}</p>
-      )}
+      {renderDescription}
 
       <Modal
-        title={description}
-        open={isModalOpen}
-        onCancel={handleCancel}
-        footer={false}
         width={1000}
+        footer={false}
         destroyOnClose
+        open={isModalOpen}
+        title={description}
+        onCancel={handleCancel}
         className="play-by-play__modal"
       >
-        {isFetching ? (
-          <Spin size="large" className="play-by-play__modal--spin" />
-        ) : (
-          <video
-            autoPlay
-            controls
-            src={data?.videoUrl}
-            poster={data?.videoPoster}
-            className="play-by-play__modal--video"
-          />
-        )}
+        {renderVideo}
       </Modal>
     </>
   );

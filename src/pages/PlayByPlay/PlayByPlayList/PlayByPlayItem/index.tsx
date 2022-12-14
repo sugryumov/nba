@@ -2,7 +2,7 @@ import { FC, Fragment } from 'react';
 import { PlayByPlayResponseDto } from '@/types/response/playByPlay';
 import { playByPlayOptions } from '@/helpers/prepareOptions';
 import { PLAY_BY_PLAY_EVENT_MSG_TYPE } from '@/constants/gameStatus';
-import PlayByPlayModal from '../PlayByPlayModal';
+import PlayByPlayModal from './PlayByPlayModal';
 
 import './index.css';
 
