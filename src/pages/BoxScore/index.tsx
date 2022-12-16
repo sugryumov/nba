@@ -17,7 +17,7 @@ const BoxScore: FC = () => {
       isError={isError}
     >
       {Object.values(data as BoxScoreResponseDto).map(team => (
-        <BoxScoreTable key={team.teamId} data={team} />
+        <BoxScoreTable key={team.teamId} data={team} gameId={gameId} />
       ))}
     </GetDataLayout>
   );

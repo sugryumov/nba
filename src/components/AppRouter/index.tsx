@@ -8,6 +8,7 @@ export const AppRouter = () => {
   const Standings = React.lazy(() => import('../../pages/Standings'));
   const BoxScore = React.lazy(() => import('../../pages/BoxScore'));
   const PlayByPlay = React.lazy(() => import('../../pages/PlayByPlay'));
+  const VideoEvents = React.lazy(() => import('../../pages/VideoEvents'));
 
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ export const AppRouter = () => {
           <Route path={ROUTES.STANDINGS.PATH} element={<Standings />} />
           <Route path={ROUTES.BOX_SCORE.PATH} element={<BoxScore />} />
           <Route path={ROUTES.PLAY_BY_PLAY.PATH} element={<PlayByPlay />} />
+          <Route path={ROUTES.VIDEO_EVENTS.PATH} element={<VideoEvents />} />
         </Routes>
       </AppLayout>
     </BrowserRouter>

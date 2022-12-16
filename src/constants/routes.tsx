@@ -20,4 +20,8 @@ export const ROUTES: Routes = {
     PATH: `${ROUTE_PREF}/play-by-play`,
     IS_MENU_ITEM: false,
   },
+  VIDEO_EVENTS: {
+    PATH: `${ROUTE_PREF}/video-events`,
+    IS_MENU_ITEM: false,
+  },
 };
