@@ -3,71 +3,75 @@ import type { ColumnsType } from 'antd/es/table';
 import { ROUTES } from '@/constants/routes';
 import { BoxScoreAndMatchInfo } from '@/types/response/boxScore';
 
-const sharedOnCell = (data: BoxScoreAndMatchInfo) =>
-  Number(data.played) ? {} : { colSpan: 0 };
+const renderPlayerNameColumn = (_: string, record: BoxScoreAndMatchInfo) => {
+  const { name, position, personId } = record;
 
-const renderLinkColumn =
+  return (
+    <div className="box-score__table--player">
+      <img
+        className="box-score__table--img"
+        src={`https://cdn.nba.com/headshots/nba/latest/260x190/${personId}.png`}
+      />
+      {name}
+      <span className="box-score__table--position">{position ?? ''}</span>
+    </div>
+  );
+};
+
+const renderMinutesColumn = (value: string, record: BoxScoreAndMatchInfo) => {
+  const [min, sec] = value.split('M');
+  const { played, notPlayingReason } = record;
+
+  if (!Number(played)) {
+    return (
+      <p className="box-score__table--not-playing">
+        {notPlayingReason
+          ? notPlayingReason.split('_').join(' - ')
+          : "DNP - Coach's Decision"}
+      </p>
+    );
+  }
+
+  return `${min.match(/\d+/)}:${sec.match(/\d+/)}`;
+};
+
+const renderShotChartLinkColumn =
   // eslint-disable-next-line react/display-name
   (type: string) => (text: number, record: BoxScoreAndMatchInfo) => {
     const { personId, teamId, gameId } = record;
-    const toVideoEventsPath = `${ROUTES.VIDEO_EVENTS.PATH}?teamId=${teamId}&gameId=${gameId}&playerId=${personId}&type=${type}`;
+    const toVideoEventsPath = `${ROUTES.SHOT_CHART.PATH}?teamId=${teamId}&gameId=${gameId}&playerId=${personId}&type=${type}`;
 
     return (
       <>{text ? <Link to={toVideoEventsPath}>{text}</Link> : <p>{text}</p>}</>
     );
   };
 
+const sharedOnCell = (data: BoxScoreAndMatchInfo) =>
+  Number(data.played) ? {} : { colSpan: 0 };
+
 export const columns: ColumnsType<BoxScoreAndMatchInfo> = [
   {
     title: 'Player',
     fixed: true,
-    render: (_, record) => {
-      const { name, position, personId } = record;
-
-      return (
-        <div className="box-score__table--player">
-          <img
-            className="box-score__table--img"
-            src={`https://cdn.nba.com/headshots/nba/latest/260x190/${personId}.png`}
-          />
-          {name}
-          <span className="box-score__table--position">{position ?? ''}</span>
-        </div>
-      );
-    },
+    render: renderPlayerNameColumn,
   },
   {
     title: 'MIN',
     dataIndex: ['statistics', 'minutes'],
-    render: (value, record) => {
-      const [min, sec] = value.split('M');
-      const { played, notPlayingReason } = record;
-
-      if (!Number(played)) {
-        return (
-          <p className="box-score__table--not-playing">
-            {notPlayingReason
-              ? notPlayingReason.split('_').join(' - ')
-              : "DNP - Coach's Decision"}
-          </p>
-        );
-      }
-
-      return `${min.match(/\d+/)}:${sec.match(/\d+/)}`;
-    },
+    render: renderMinutesColumn,
     onCell: ({ played }) => (Number(played) ? {} : { colSpan: 20 }),
   },
   {
     title: 'FGM',
     dataIndex: ['statistics', 'fieldGoalsMade'],
     onCell: sharedOnCell,
-    render: renderLinkColumn('FGM'),
+    render: renderShotChartLinkColumn('FGM'),
   },
   {
     title: 'FGA',
     dataIndex: ['statistics', 'fieldGoalsAttempted'],
     onCell: sharedOnCell,
-    render: renderLinkColumn('FGA'),
+    render: renderShotChartLinkColumn('FGA'),
   },
   {
     title: 'FG%',
@@ -79,13 +83,13 @@ export const columns: ColumnsType<BoxScoreAndMatchInfo> = [
     title: '3PM',
     dataIndex: ['statistics', 'threePointersMade'],
     onCell: sharedOnCell,
-    render: renderLinkColumn('3PM'),
+    render: renderShotChartLinkColumn('3PM'),
   },
   {
     title: '3PA',
     dataIndex: ['statistics', 'threePointersAttempted'],
     onCell: sharedOnCell,
-    render: renderLinkColumn('3PA'),
+    render: renderShotChartLinkColumn('3PA'),
   },
   {
     title: '3P%',
@@ -113,43 +117,43 @@ export const columns: ColumnsType<BoxScoreAndMatchInfo> = [
     title: 'OREB',
     dataIndex: ['statistics', 'reboundsOffensive'],
     onCell: sharedOnCell,
-    render: renderLinkColumn('OREB'),
+    render: renderShotChartLinkColumn('OREB'),
   },
   {
     title: 'DREB',
     dataIndex: ['statistics', 'reboundsDefensive'],
     onCell: sharedOnCell,
-    render: renderLinkColumn('DREB'),
+    render: renderShotChartLinkColumn('DREB'),
   },
   {
     title: 'REB',
     dataIndex: ['statistics', 'reboundsTotal'],
     onCell: sharedOnCell,
-    render: renderLinkColumn('REB'),
+    render: renderShotChartLinkColumn('REB'),
   },
   {
     title: 'AST',
     dataIndex: ['statistics', 'assists'],
     onCell: sharedOnCell,
-    render: renderLinkColumn('AST'),
+    render: renderShotChartLinkColumn('AST'),
   },
   {
     title: 'STL',
     dataIndex: ['statistics', 'steals'],
     onCell: sharedOnCell,
-    render: renderLinkColumn('STL'),
+    render: renderShotChartLinkColumn('STL'),
   },
   {
     title: 'BLK',
     dataIndex: ['statistics', 'blocks'],
     onCell: sharedOnCell,
-    render: renderLinkColumn('BLK'),
+    render: renderShotChartLinkColumn('BLK'),
   },
   {
     title: 'TO',
     dataIndex: ['statistics', 'turnovers'],
     onCell: sharedOnCell,
-    render: renderLinkColumn('TO'),
+    render: renderShotChartLinkColumn('TO'),
   },
   {
     title: 'PF',

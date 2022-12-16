@@ -4,7 +4,7 @@ enum RoutesName {
   STANDINGS = 'STANDINGS',
   BOX_SCORE = 'BOX_SCORE',
   PLAY_BY_PLAY = 'PLAY_BY_PLAY',
-  VIDEO_EVENTS = 'VIDEO_EVENTS',
+  SHOT_CHART = 'SHOT_CHART',
 }
 
 export type Route = {
