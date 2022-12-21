@@ -20,4 +20,8 @@ export const ROUTES: Routes = {
     PATH: `${ROUTE_PREF}/play-by-play`,
     IS_MENU_ITEM: false,
   },
+  SHOT_CHART: {
+    PATH: `${ROUTE_PREF}/shot-chart`,
+    IS_MENU_ITEM: false,
+  },
 };

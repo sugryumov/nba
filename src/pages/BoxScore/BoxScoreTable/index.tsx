@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Table } from 'antd';
-import { BoxScoreTeam } from '@/types/response/boxScore';
+import { BoxScoreAndMatchInfo, BoxScoreTeam } from '@/types/response/boxScore';
 import { columns } from './columns';
 import Summary from './Summary';
 
@@ -8,11 +8,15 @@ import './index.css';
 
 type BoxScoreTableProps = {
   data: BoxScoreTeam;
+  gameId: string;
 };
 
-const BoxScoreTable: FC<BoxScoreTableProps> = ({ data }) => {
-  const { teamCity, teamName, players, statistics } = data;
-  const filteredPlayers = players.filter(player => player.status === 'ACTIVE');
+const BoxScoreTable: FC<BoxScoreTableProps> = ({ data, gameId }) => {
+  const { teamCity, teamName, teamId, players, statistics } = data;
+
+  const filteredPlayers: BoxScoreAndMatchInfo[] = players
+    .filter(player => player.status === 'ACTIVE')
+    .map(player => ({ ...player, teamId, gameId }));
 
   const renderTitle = () => (
     <p className="title">
@@ -28,7 +32,7 @@ const BoxScoreTable: FC<BoxScoreTableProps> = ({ data }) => {
       dataSource={filteredPlayers}
       columns={columns}
       pagination={false}
-      className="box-score__table"
+      className="table box-score__table"
       summary={() => <Summary statistics={statistics} />}
     />
   );

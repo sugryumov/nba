@@ -31,6 +31,11 @@ export type BoxScorePlayer = {
   status: string;
 };
 
+export interface BoxScoreAndMatchInfo extends BoxScorePlayer {
+  teamId: number;
+  gameId: string;
+}
+
 export type BoxScoreStatistics = {
   assists: number;
   assistsTurnoverRatio: number;
