@@ -26,6 +26,18 @@ p {
   font-weight: 600;
 }
 
+.table .ant-table {
+  overflow: hidden;
+}
+
+.table .ant-table-container {
+  overflow-y: auto;
+}
+
+.table .ant-table-cell {
+  white-space: nowrap;
+}
+
 @media (max-width: 1280px) {
   .container {
     box-sizing: border-box;

@@ -32,7 +32,7 @@ const BoxScoreTable: FC<BoxScoreTableProps> = ({ data, gameId }) => {
       dataSource={filteredPlayers}
       columns={columns}
       pagination={false}
-      className="box-score__table"
+      className="table box-score__table"
       summary={() => <Summary statistics={statistics} />}
     />
   );
