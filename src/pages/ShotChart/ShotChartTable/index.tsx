@@ -1,7 +1,7 @@
 import { FC, Key, useEffect } from 'react';
 import { Table } from 'antd';
 import { ShotChartResponseDto } from '@/types/response/shotChart';
-import { useLazyFetchVideoEventQuery } from '@/services/videoEventService';
+import { useActions } from '@/hooks/useActions';
 import { columns } from './columns';
 
 import './index.css';
@@ -11,54 +11,45 @@ type ShotChartTableProps = {
 };
 
 const ShotChartTable: FC<ShotChartTableProps> = ({ data }) => {
-  const [fetchVideo, { data: video }] = useLazyFetchVideoEventQuery();
+  const [firstRow] = data;
+  const { gameId, gameEventId } = firstRow;
+
+  const { setShotChartVideo } = useActions();
 
   useEffect(() => {
-    if (data) {
-      const [firstRow] = data;
-
-      fetchVideo({
-        gameId: firstRow.gameId,
-        gameEventId: firstRow.gameEventId,
-      });
-    }
+    setShotChartVideo({
+      gameId,
+      gameEventId,
+    });
   }, [data]);
 
   const rowSelection = {
     onChange: (_: Key[], selectedRows: ShotChartResponseDto[]) => {
       const [row] = selectedRows;
+      const { gameId, gameEventId } = row;
 
-      fetchVideo({
-        gameId: row.gameId,
-        gameEventId: row.gameEventId,
+      setShotChartVideo({
+        gameId,
+        gameEventId,
       });
     },
   };
 
   return (
-    <>
-      <video
-        autoPlay
-        controls
-        src={video?.videoUrl}
-        poster={video?.videoPoster}
-        className="shot-chart__table--video"
-      />
-      <Table
-        size="small"
-        rowKey="gameEventId"
-        dataSource={data}
-        columns={columns}
-        pagination={false}
-        className="table"
-        rowSelection={{
-          fixed: true,
-          type: 'radio',
-          defaultSelectedRowKeys: [data[0].gameEventId],
-          ...rowSelection,
-        }}
-      />
-    </>
+    <Table
+      size="small"
+      rowKey="gameEventId"
+      dataSource={data}
+      columns={columns}
+      pagination={false}
+      className="table"
+      rowSelection={{
+        fixed: true,
+        type: 'radio',
+        defaultSelectedRowKeys: [gameEventId],
+        ...rowSelection,
+      }}
+    />
   );
 };
 
