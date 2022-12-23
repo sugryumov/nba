@@ -33,6 +33,7 @@ import {
   UTA,
   WAS,
 } from './NBATeam';
+import Floor from './Floor';
 
 const getPath = (name: string, props: ISvgIcon) => {
   switch (name) {
@@ -125,6 +126,9 @@ const getPath = (name: string, props: ISvgIcon) => {
 
     case TEAMS.WAS:
       return <WAS {...props} />;
+
+    case 'floor':
+      return <Floor {...props} />;
 
     default:
       return <NBA {...props} />;

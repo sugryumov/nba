@@ -1,0 +1,11 @@
+.short-chat__info {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+@media (max-width: 1200px) {
+  .short-chat__info {
+    justify-content: center;
+  }
+}

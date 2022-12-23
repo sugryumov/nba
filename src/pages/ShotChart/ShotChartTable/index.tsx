@@ -12,25 +12,41 @@ type ShotChartTableProps = {
 
 const ShotChartTable: FC<ShotChartTableProps> = ({ data }) => {
   const [firstRow] = data;
-  const { gameId, gameEventId } = firstRow;
+  const { gameId, gameEventId, playerName, minutesRemaining, actionType } =
+    firstRow;
 
   const { setShotChartVideo } = useActions();
 
   useEffect(() => {
     setShotChartVideo({
-      gameId,
-      gameEventId,
+      video: {
+        gameId,
+        gameEventId,
+      },
+      info: {
+        playerName,
+        minutesRemaining,
+        actionType,
+      },
     });
   }, [data]);
 
   const rowSelection = {
     onChange: (_: Key[], selectedRows: ShotChartResponseDto[]) => {
       const [row] = selectedRows;
-      const { gameId, gameEventId } = row;
+      const { gameId, gameEventId, playerName, minutesRemaining, actionType } =
+        row;
 
       setShotChartVideo({
-        gameId,
-        gameEventId,
+        video: {
+          gameId,
+          gameEventId,
+        },
+        info: {
+          playerName,
+          minutesRemaining,
+          actionType,
+        },
       });
     },
   };

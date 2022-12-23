@@ -1,13 +1,13 @@
 import { FC, useEffect } from 'react';
+import { Spin } from 'antd';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { useLazyFetchVideoEventQuery } from '@/services/videoEventService';
 
 import './index.css';
-import { Spin } from 'antd';
 
 const ShotChartVideo: FC = () => {
   const [fetchVideo, { data, isFetching }] = useLazyFetchVideoEventQuery();
-  const { video } = useTypedSelector(state => state.shotChartReducer);
+  const { video, info } = useTypedSelector(state => state.shotChartReducer);
 
   useEffect(() => {
     if (video.gameEventId) {
@@ -17,18 +17,23 @@ const ShotChartVideo: FC = () => {
     }
   }, [video]);
 
+  const renderTitle = `${info?.playerName} ${info?.minutesRemaining}' ${info?.actionType}`;
+
   return (
     <>
       {isFetching ? (
         <Spin size="large" className="shot-chart__video--spin" />
       ) : (
-        <video
-          autoPlay
-          controls
-          src={data?.videoUrl}
-          poster={data?.videoPoster}
-          className="shot-chart__video"
-        />
+        <div className="shot-chart__video">
+          <p className="shot-chart__video--title">{renderTitle}</p>
+          <video
+            autoPlay
+            controls
+            src={data?.videoUrl}
+            poster={data?.videoPoster}
+            className="shot-chart__video--video"
+          />
+        </div>
       )}
     </>
   );

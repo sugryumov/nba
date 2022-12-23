@@ -5,6 +5,11 @@ type ShotChartSlice = {
     gameId: null | string;
     gameEventId: null | number;
   };
+  info: {
+    playerName: string;
+    minutesRemaining: number;
+    actionType: string;
+  };
 };
 
 const initialState: ShotChartSlice = {
@@ -12,15 +17,18 @@ const initialState: ShotChartSlice = {
     gameId: null,
     gameEventId: null,
   },
+  info: {
+    playerName: '',
+    minutesRemaining: 0,
+    actionType: '',
+  },
 };
 
 const shotChartSlice = createSlice({
   name: 'shotChart',
   initialState,
   reducers: {
-    setShotChartVideo: (state, { payload }) => {
-      state.video = payload;
-    },
+    setShotChartVideo: (_, { payload }) => payload,
   },
 });
 

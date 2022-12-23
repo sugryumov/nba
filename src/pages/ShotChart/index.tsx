@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useFetchShotChartQuery } from '@/services/shotChartService';
 import { ShotChartResponseDto } from '@/types/response/shotChart';
 import GetDataLayout from '@/components/GetDataLayout';
-import ShotChartVideo from './ShotChartVideo';
+import ShotChartInfo from './ShotChartInfo';
 import ShotChartTable from './ShotChartTable';
 
 const ShotChart: FC = () => {
@@ -27,7 +27,7 @@ const ShotChart: FC = () => {
 
   return (
     <GetDataLayout data={data} isLoading={isFetching} isError={isError}>
-      <ShotChartVideo />
+      <ShotChartInfo />
       <ShotChartTable data={filteredData} />
     </GetDataLayout>
   );
