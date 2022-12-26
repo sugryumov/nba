@@ -16,6 +16,10 @@
   width: 200px;
 }
 
+.box-score__name--mobile {
+  display: none;
+}
+
 .box-score__table--img {
   width: 27px;
   height: 27px;
@@ -33,4 +37,14 @@
 
 .box-score__table--not-playing {
   text-align-last: left;
+}
+
+@media (max-width: 600px) {
+  .box-score__name--mobile {
+    display: block;
+  }
+
+  .box-score__name--desktop {
+    display: none;
+  }
 }

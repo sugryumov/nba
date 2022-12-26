@@ -4,7 +4,7 @@ import { ROUTES } from '@/constants/routes';
 import { BoxScoreAndMatchInfo } from '@/types/response/boxScore';
 
 const renderPlayerNameColumn = (_: string, record: BoxScoreAndMatchInfo) => {
-  const { name, position, personId } = record;
+  const { name, nameI, position, personId } = record;
 
   return (
     <div className="box-score__table--player">
@@ -12,7 +12,8 @@ const renderPlayerNameColumn = (_: string, record: BoxScoreAndMatchInfo) => {
         className="box-score__table--img"
         src={`https://cdn.nba.com/headshots/nba/latest/260x190/${personId}.png`}
       />
-      {name}
+      <p className="box-score__name--mobile">{nameI}</p>
+      <p className="box-score__name--desktop">{name}</p>
       <span className="box-score__table--position">{position ?? ''}</span>
     </div>
   );
