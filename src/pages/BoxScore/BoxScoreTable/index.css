@@ -47,4 +47,8 @@
   .box-score__name--desktop {
     display: none;
   }
+
+  .box-score__table--player {
+    width: 165px;
+  }
 }
