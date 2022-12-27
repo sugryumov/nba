@@ -12,8 +12,15 @@ type ShotChartTableProps = {
 
 const ShotChartTable: FC<ShotChartTableProps> = ({ data }) => {
   const [firstRow] = data;
-  const { gameId, gameEventId, playerName, minutesRemaining, actionType } =
-    firstRow;
+  const {
+    gameId,
+    gameEventId,
+    playerName,
+    minutesRemaining,
+    actionType,
+    locX,
+    locY,
+  } = firstRow;
 
   const { setShotChartVideo } = useActions();
 
@@ -27,6 +34,8 @@ const ShotChartTable: FC<ShotChartTableProps> = ({ data }) => {
         playerName,
         minutesRemaining,
         actionType,
+        locX,
+        locY,
       },
     });
   }, [data]);
@@ -34,8 +43,15 @@ const ShotChartTable: FC<ShotChartTableProps> = ({ data }) => {
   const rowSelection = {
     onChange: (_: Key[], selectedRows: ShotChartResponseDto[]) => {
       const [row] = selectedRows;
-      const { gameId, gameEventId, playerName, minutesRemaining, actionType } =
-        row;
+      const {
+        gameId,
+        gameEventId,
+        playerName,
+        minutesRemaining,
+        actionType,
+        locX,
+        locY,
+      } = row;
 
       setShotChartVideo({
         video: {
@@ -46,6 +62,8 @@ const ShotChartTable: FC<ShotChartTableProps> = ({ data }) => {
           playerName,
           minutesRemaining,
           actionType,
+          locX,
+          locY,
         },
       });
     },

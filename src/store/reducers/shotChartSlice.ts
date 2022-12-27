@@ -9,6 +9,8 @@ type ShotChartSlice = {
     playerName: string;
     minutesRemaining: number;
     actionType: string;
+    locX: number;
+    locY: number;
   };
 };
 
@@ -21,6 +23,8 @@ const initialState: ShotChartSlice = {
     playerName: '',
     minutesRemaining: 0,
     actionType: '',
+    locX: 0,
+    locY: 0,
   },
 };
 
