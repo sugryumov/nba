@@ -1,0 +1,1 @@
+import{a7 as r}from"./index.5c1b9ac0.js";const n=o=>{const[e]=o.Meta.videoUrls;return{videoUrl:e.murl,videoPoster:e.mth}},s=r.injectEndpoints({endpoints:o=>({fetchVideoEvent:o.query({query:({gameId:e,gameEventId:t})=>({url:"/video",params:{gameId:e,gameEventId:t}}),transformResponse:e=>n(e)})})}),{useLazyFetchVideoEventQuery:a}=s;export{a as u};
