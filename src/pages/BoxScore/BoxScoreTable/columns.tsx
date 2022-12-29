@@ -60,7 +60,7 @@ export const columns: ColumnsType<BoxScoreAndMatchInfo> = [
     title: 'MIN',
     dataIndex: ['statistics', 'minutes'],
     render: renderMinutesColumn,
-    onCell: ({ played }) => (Number(played) ? {} : { colSpan: 20 }),
+    onCell: ({ played }) => (Number(played) ? {} : { colSpan: 21 }),
   },
   {
     title: 'FGM',
@@ -157,6 +157,44 @@ export const columns: ColumnsType<BoxScoreAndMatchInfo> = [
   {
     title: 'PTS',
     dataIndex: ['statistics', 'points'],
+    onCell: sharedOnCell,
+  },
+  {
+    title: 'FPTS',
+    dataIndex: 'statistics',
+    render: value => {
+      const {
+        points,
+        blocks,
+        steals,
+        reboundsTotal,
+        assists,
+        foulsPersonal,
+        turnovers,
+      } = value;
+
+      const blkPoints = blocks * 3;
+      const stlPoints = steals * 3;
+      const rebPoints = reboundsTotal * 1.2;
+      const astPoints = assists * 1.5;
+      const pfPoints = foulsPersonal * 0.5;
+      const doubleDouble =
+        points > 9 && (assists > 9 || reboundsTotal > 9) ? 3 : 0;
+      const tripleDouble =
+        points > 9 && assists > 9 && reboundsTotal > 9 ? 5 : 0;
+
+      const plus =
+        points +
+        blkPoints +
+        stlPoints +
+        rebPoints +
+        astPoints +
+        doubleDouble +
+        tripleDouble;
+      const minus = turnovers + pfPoints;
+
+      return (plus - minus).toFixed(1);
+    },
     onCell: sharedOnCell,
   },
   {
