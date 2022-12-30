@@ -39,7 +39,7 @@ export const columns: ColumnsType<ShotChartResponseDto> = [
     title: 'Box Score',
     render: (_, record) => {
       const { gameId, homeTeam, visitorTeam } = record;
-      const toBoxScorePath = `${ROUTES.BOX_SCORE.PATH}?id=${gameId}`;
+      const toBoxScorePath = `${ROUTES.GAME_INFO.PATH}?gameId=${gameId}`;
 
       return <Link to={toBoxScorePath}>{`${visitorTeam} @ ${homeTeam}`}</Link>;
     },

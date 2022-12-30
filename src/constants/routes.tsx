@@ -7,6 +7,10 @@ export const ROUTES: Routes = {
     NAME: 'GAMES',
     IS_MENU_ITEM: true,
   },
+  GAME_INFO: {
+    PATH: `${ROUTE_PREF}/game-info`,
+    IS_MENU_ITEM: false,
+  },
   STANDINGS: {
     PATH: `${ROUTE_PREF}/standings`,
     NAME: 'STANDINGS',

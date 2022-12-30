@@ -1,0 +1,4 @@
+export const GAME_INFO_TABS = {
+  BOX_SCORE: 'BOX_SCORE',
+  PLAY_BY_PLAY: 'PLAY_BY_PLAY',
+};

@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 enum RoutesName {
   GAMES = 'GAMES',
+  GAME_INFO = 'GAME_INFO',
   STANDINGS = 'STANDINGS',
   BOX_SCORE = 'BOX_SCORE',
   PLAY_BY_PLAY = 'PLAY_BY_PLAY',

@@ -7,7 +7,7 @@ import BoxScoreTable from './BoxScoreTable';
 
 const BoxScore: FC = () => {
   const { search } = useLocation();
-  const gameId = new URLSearchParams(search).get('id')!;
+  const gameId = new URLSearchParams(search).get('gameId')!;
   const { data = {}, isFetching, isError } = useFetchBoxScoreQuery(gameId);
 
   return (

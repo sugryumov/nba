@@ -10,7 +10,7 @@ import './index.css';
 
 const PlayByPlay: FC = () => {
   const { search } = useLocation();
-  const gameId = new URLSearchParams(search).get('id')!;
+  const gameId = new URLSearchParams(search).get('gameId')!;
   const { data, isFetching, isError } = useFetchPlayByPlayQuery(gameId);
 
   return (
