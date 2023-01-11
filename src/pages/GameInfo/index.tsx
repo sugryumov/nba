@@ -3,8 +3,8 @@ import { Tabs } from 'antd';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { useActions } from '@/hooks/useActions';
 import { GAME_INFO_TABS } from '@/constants/gameInfoTabs';
-import BoxScore from '../BoxScore';
-import PlayByPlay from '../PlayByPlay';
+import BoxScore from './BoxScore';
+import PlayByPlay from './PlayByPlay';
 
 import './index.css';
 
